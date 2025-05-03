@@ -2,32 +2,46 @@ import React, { useState } from 'react';
 
 export default function UploadCredential({ username, onNew }) {
   const [title, setTitle] = useState('');
-  const [file, setFile] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   const submit = async e => {
     e.preventDefault();
-    const form = new FormData();
-    form.append('username', username);
-    form.append('title', title);
-    if (file) form.append('file', file);
+    setLoading(true);
+    
+    try {
+      const resp = await fetch('/api/issueCredential', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          userId: username,
+          certTitle: title
+        }),
+      });
 
-    const resp = await fetch('/api/issueCredential', {
-      method: 'POST',
-      body: form,
-    });
-    if (resp.ok) {
-      const cred = await resp.json();
-      onNew(cred);
-      setTitle('');
-      setFile(null);
-    } else {
+      if (resp.ok) {
+        const data = await resp.json();
+        onNew({
+          title,
+          tokenId: data.txHash,
+          issuedAt: new Date().toISOString()
+        });
+        setTitle('');
+      } else {
+        alert('Error issuing credential');
+      }
+    } catch (error) {
+      console.error('Error:', error);
       alert('Error issuing credential');
+    } finally {
+      setLoading(false);
     }
   };
 
   return (
     <form onSubmit={submit} className="bg-white p-6 rounded-lg shadow-md max-w-md">
-      <h2 className="text-xl mb-4">Upload a Microcredential</h2>
+      <h2 className="text-xl mb-4">Issue a Microcredential</h2>
       <label className="block mb-4">
         <span className="text-gray-700">Title</span>
         <input
@@ -36,21 +50,17 @@ export default function UploadCredential({ username, onNew }) {
           onChange={e => setTitle(e.target.value)}
           required
           className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md"
-        />
-      </label>
-      <label className="block mb-6">
-        <span className="text-gray-700">Credential File (PDF/JSON)</span>
-        <input
-          type="file"
-          onChange={e => setFile(e.target.files[0])}
-          className="mt-1 block w-full"
+          placeholder="Enter credential title"
         />
       </label>
       <button
         type="submit"
-        className="py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700"
+        disabled={loading}
+        className={`py-2 px-4 bg-green-600 text-white rounded hover:bg-green-700 ${
+          loading ? 'opacity-50 cursor-not-allowed' : ''
+        }`}
       >
-        Issue NFT
+        {loading ? 'Issuing...' : 'Issue NFT'}
       </button>
     </form>
   );
