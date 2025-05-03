@@ -1,0 +1,95 @@
+
+> nft-credential-backend@1.0.0 start
+> node server.js
+
+Generated new issuer keypair. Public key: Dxz42wbsxTYwGev5FRC6Knu8qr4wRB2jagULdvJ1mU64
+Private key (save this): 5qKHCHQBfj2CPV8KniqTp8JnAKxqKKvcLMmr5fFQqiQLj2LhrJJX7TPgZbgGigXp24zeK7aFwCRf59KNgi1UpYM6
+(node:47476) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+Server running on port 3001
+Issuer public key: Dxz42wbsxTYwGev5FRC6Knu8qr4wRB2jagULdvJ1mU64
+(node:47476) NOTE: The AWS SDK for JavaScript (v2) is in maintenance mode.
+ SDK releases are limited to address critical bug fixes and security issues only.
+
+Please migrate your code to use AWS SDK for JavaScript (v3).
+For more information, check the blog post at https://a.co/cUPnyil
+Login request received: { username: 'jj', password: 'j' }
+Issuing credential: {
+  userId: 'jj',
+  certTitle: 'usamo',
+  recipientAddress: '4NUBn8dMQy7tmMia3FK4cpLhixXKBj4q27ua4peReMxA'
+}
+Error creating credential NFT: SendTransactionError: Simulation failed. 
+Message: Transaction simulation failed: Attempt to debit an account but found no record of a prior credit.. 
+Logs: 
+[]. 
+Catch the `SendTransactionError` and call `getLogs()` on it for full details.
+    at Connection.sendEncodedTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:8206:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.sendRawTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:8171:20)
+    at async Connection.sendTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:8162:12)
+    at async sendAndConfirmTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:2273:21) {
+  signature: '',
+  transactionMessage: 'Transaction simulation failed: Attempt to debit an account but found no record of a prior credit.',
+  transactionLogs: []
+}
+Error issuing credential: SendTransactionError: Simulation failed. 
+Message: Transaction simulation failed: Attempt to debit an account but found no record of a prior credit.. 
+Logs: 
+[]. 
+Catch the `SendTransactionError` and call `getLogs()` on it for full details.
+    at Connection.sendEncodedTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:8206:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.sendRawTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:8171:20)
+    at async Connection.sendTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:8162:12)
+    at async sendAndConfirmTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:2273:21) {
+  signature: '',
+  transactionMessage: 'Transaction simulation failed: Attempt to debit an account but found no record of a prior credit.',
+  transactionLogs: []
+}
+Login request received: { username: 'ts', password: 'pmo' }
+Server responded with 429 Too Many Requests.  Retrying after 500ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 1000ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 2000ms delay...
+Server responded with 429 Too Many Requests.  Retrying after 4000ms delay...
+Error requesting airdrop: Error: 429 Too Many Requests:  {"jsonrpc":"2.0","error":{"code": 429, "message":"You've either reached your airdrop limit today or the airdrop faucet has run dry. Please visit https://faucet.solana.com for alternate sources of test SOL"}, "id": "d27a5d1e-095a-4847-bf88-0df82cbd16e0" } 
+
+    at ClientBrowser.callServer (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:5081:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Error requesting airdrop: Error: 429 Too Many Requests:  {"jsonrpc":"2.0","error":{"code": 429, "message":"You've either reached your airdrop limit today or the airdrop faucet has run dry. Please visit https://faucet.solana.com for alternate sources of test SOL"}, "id": "d27a5d1e-095a-4847-bf88-0df82cbd16e0" } 
+
+    at ClientBrowser.callServer (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:5081:18)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Issuing credential: {
+  userId: 'ts',
+  certTitle: 'fff',
+  recipientAddress: '4NUBn8dMQy7tmMia3FK4cpLhixXKBj4q27ua4peReMxA'
+}
+Error creating credential NFT: SendTransactionError: Simulation failed. 
+Message: Transaction simulation failed: Attempt to debit an account but found no record of a prior credit.. 
+Logs: 
+[]. 
+Catch the `SendTransactionError` and call `getLogs()` on it for full details.
+    at Connection.sendEncodedTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:8206:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.sendRawTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:8171:20)
+    at async Connection.sendTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:8162:12)
+    at async sendAndConfirmTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:2273:21) {
+  signature: '',
+  transactionMessage: 'Transaction simulation failed: Attempt to debit an account but found no record of a prior credit.',
+  transactionLogs: []
+}
+Error issuing credential: SendTransactionError: Simulation failed. 
+Message: Transaction simulation failed: Attempt to debit an account but found no record of a prior credit.. 
+Logs: 
+[]. 
+Catch the `SendTransactionError` and call `getLogs()` on it for full details.
+    at Connection.sendEncodedTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:8206:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async Connection.sendRawTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:8171:20)
+    at async Connection.sendTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:8162:12)
+    at async sendAndConfirmTransaction (/Users/ashir/Documents/GitHub/NFT-Credential-Issuance/backend/node_modules/@solana/web3.js/lib/index.cjs.js:2273:21) {
+  signature: '',
+  transactionMessage: 'Transaction simulation failed: Attempt to debit an account but found no record of a prior credit.',
+  transactionLogs: []
+}

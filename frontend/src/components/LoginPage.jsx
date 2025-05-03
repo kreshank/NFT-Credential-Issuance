@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-export default function LoginPage({ onLogin }) {
+export default function LoginPage({ onLogin, onShowRegister }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -39,6 +39,11 @@ export default function LoginPage({ onLogin }) {
         >
           Sign In
         </button>
+        <div className="mt-4 text-center">
+          <button type="button" className="text-blue-500 underline" onClick={onShowRegister}>
+            Register
+          </button>
+        </div>
       </form>
     </div>
   );
